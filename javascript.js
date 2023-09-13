@@ -49,7 +49,7 @@ if(pointsOfComputer>pointsOfPlayer){
 else if(pointsOfComputer<pointsOfPlayer){
     console.log("You Wins!")
 }
-else if(pointsOfComputer=pointsOfPlayer){
+else if(pointsOfComputer===pointsOfPlayer){
     console.log("Tie!")
 }
     
