@@ -14,20 +14,23 @@ function game(){
     function playRound(playerSelection, computerSelection) {
         
         let playerSelectionCaseInsensitive = playerSelection.toLowerCase();
-        if((playerSelectionCaseInsensitive == 'rock' && computerSelection == 'paper') || (playerSelectionCaseInsensitive == 'paper' && computerSelection == 'scissors') ||
+        if((playerSelectionCaseInsensitive == 'rock' && computerSelection == 'paper') ||
+         (playerSelectionCaseInsensitive == 'paper' && computerSelection == 'scissors') ||
             (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'rock')){
                 pointsOfComputer++;
                 return ("You Lose! " + computerSelection + " beats " +  playerSelectionCaseInsensitive);
                
                 
             }
-        else if((playerSelectionCaseInsensitive == 'paper' && computerSelection == 'rock') || (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'paper') ||
+        else if((playerSelectionCaseInsensitive == 'paper' && computerSelection == 'rock') || 
+        (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'paper') ||
         (playerSelectionCaseInsensitive == 'rock' && computerSelection == 'scissors')){
             pointsOfPlayer++;
             return ("You Win! " + playerSelectionCaseInsensitive + " beats " + computerSelection);
                 
         }
-        else if((playerSelectionCaseInsensitive == 'paper' && computerSelection == 'paper') || (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'scissors') ||
+        else if((playerSelectionCaseInsensitive == 'paper' && computerSelection == 'paper') ||
+         (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'scissors') ||
         (playerSelectionCaseInsensitive == 'rock' && computerSelection == 'rock')){
             return ("Tie!");
         }
