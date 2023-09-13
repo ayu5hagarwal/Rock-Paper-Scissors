@@ -41,7 +41,7 @@ function game(){
 }
 
 
-for (let i = 1; i <= 5.; i++) {
+for (let round = 1; round <= 5.; round++) {
     game();    
 
 }
