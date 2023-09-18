@@ -40,11 +40,6 @@
         console.log(playRound(playerSelection, computerSelection));
     }
 
-    function numberOfRound(){
-        for (let round = 1; round <= 5.; round++) {
-            game();    
-        }
-    }
 
     numberOfRound();
 
