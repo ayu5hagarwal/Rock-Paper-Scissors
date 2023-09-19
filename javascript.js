@@ -1,62 +1,61 @@
-    function getComputerChoice(){
-        const stringArray = ['rock','paper','scissors'];
-        const randomIndex = Math.floor(Math.random() * stringArray.length);
-        const randomlySelectedString = stringArray[randomIndex];
-        return randomlySelectedString; 
+function getComputerChoice() {
+    const stringArray = ['rock', 'paper', 'scissors'];
+    const randomIndex = Math.floor(Math.random() * stringArray.length);
+    const randomlySelectedString = stringArray[randomIndex];
+    return randomlySelectedString;
+}
+
+var pointsOfPlayer = 0;
+var pointsOfComputer = 0;
+
+
+function playRound(playerSelection, computerSelection) {
+    if ((playerSelection == 'rock' && computerSelection == 'paper') ||
+        (playerSelection == 'paper' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'rock')) {
+        pointsOfComputer++;
+        return ("You Lose! " + computerSelection + " beats " + playerSelection);
+
     }
+    else if ((playerSelection == 'paper' && computerSelection == 'rock') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper') ||
+        (playerSelection == 'rock' && computerSelection == 'scissors')) {
+        pointsOfPlayer++;
+        return ("You Win! " + playerSelection + " beats " + computerSelection);
 
-    var pointsOfPlayer = 0;
-    var pointsOfComputer = 0;
-
-    
-    function game(){
-    
-        function playRound(playerSelection, computerSelection) {
-            
-            let playerSelectionCaseInsensitive = playerSelection.toLowerCase();
-            if((playerSelectionCaseInsensitive == 'rock' && computerSelection == 'paper') ||
-            (playerSelectionCaseInsensitive == 'paper' && computerSelection == 'scissors') ||
-                (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'rock')){
-                    pointsOfComputer++;
-                    return ("You Lose! " + computerSelection + " beats " +  playerSelectionCaseInsensitive);
-                
-                    
-                }
-            else if((playerSelectionCaseInsensitive == 'paper' && computerSelection == 'rock') || 
-            (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'paper') ||
-            (playerSelectionCaseInsensitive == 'rock' && computerSelection == 'scissors')){
-                pointsOfPlayer++;
-                return ("You Win! " + playerSelectionCaseInsensitive + " beats " + computerSelection);
-                    
-            }
-            else if((playerSelectionCaseInsensitive == 'paper' && computerSelection == 'paper') ||
-            (playerSelectionCaseInsensitive == 'scissors' && computerSelection == 'scissors') ||
-            (playerSelectionCaseInsensitive == 'rock' && computerSelection == 'rock')){
-                return ("Tie!");
-            }
-            } 
-        const playerSelection = prompt();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
     }
-
-
-    numberOfRound();
-
-    function decidesWinner(){
-        if(pointsOfComputer>pointsOfPlayer){
-            console.log("Computer Wins!")
-        }
-        else if(pointsOfComputer<pointsOfPlayer){
-            console.log("You Wins!")
-        }
-        else if(pointsOfComputer===pointsOfPlayer){
-            console.log("Tie!")
-        }
+    else if ((playerSelection == 'paper' && computerSelection == 'paper') ||
+        (playerSelection == 'scissors' && computerSelection == 'scissors') ||
+        (playerSelection == 'rock' && computerSelection == 'rock')) {
+        return ("Tie!");
     }
+}
 
-    decidesWinner();
+function game(playerSelection){
+    const computerSelection = getComputerChoice();
+    return playRound(playerSelection,computerSelection);
+}
 
+
+
+// Adding event listeners to button
+
+
+const buttonRock = document.querySelector(".buttonRock");
+buttonRock.addEventListener('click', () => {
+    const roundResult = document.querySelector(".roundResult");
+    roundResult.innerText = game('rock');
+});
+const buttonPaper = document.querySelector(".buttonPaper");
+buttonPaper.addEventListener('click', () => {
+    const roundResult = document.querySelector(".roundResult");
+    roundResult.innerText = game('paper');
+});
+const buttonScissors = document.querySelector(".buttonScissors");
+buttonScissors.addEventListener('click', () => {
+    const roundResult = document.querySelector(".roundResult");
+    roundResult.innerText = game('scissors');
+});
 
 
 
